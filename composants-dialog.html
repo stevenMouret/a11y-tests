@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialog, Composants, Tests d'accessibilité</title>
+    <link rel="stylesheet" href="css/github.css">
+    <style media="all">
+        dialog:not([open]) {
+            display: none;
+        }
+
+        dialog::backdrop {
+            position: fixed;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+            background: rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header role="banner">
+        <h1>Composant natif dialog</h1>
+        <p><a href="index.html">Retour à l'accueil</a></p>
+    </header>
+    <main role="main">
+        <button type="button" id="open-modal">Ouvrir une fenêtre modale</button>
+        <dialog id="modal">
+            <button type="button" id="close-modal">Fermer</button>
+            <h1>Ma fenêtre modale</h1>
+        </dialog>
+        <p>Un <a href="index.html">lien</a> dans ma page.</p>
+        <table>
+            <caption>Support navigateur desktop</caption>
+            <tr>
+                <td></td>
+                <th scope="col">Firefox / NVDA</th>
+                <th scope="col">Chrome / NVDA</th>
+                <th scope="col">Edge / NVDA</th>
+                <th scope="col">Firefox / Jaws</th>
+                <th scope="col">Chrome / Jaws</th>
+                <th scope="col">Edge / Jaws</th>
+                <th scope="col">Safari / VoiceOver</th>
+                <th scope="col">Chrome / VoiceOver</th>
+            </tr>
+            <tr>
+                <th scope="row">Touche Echap</th>
+                <td>Ok</td>
+                <td>Ok</td>
+                <td>Ok</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">Élements en arrière plan indisponibles</th>
+                <td>Ok</td>
+                <td>Ok</td>
+                <td>Ok</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const openModal = document.getElementById('open-modal')
+            const closeModal = document.getElementById('close-modal')
+            const modal = document.getElementById('modal')
+
+            openModal.addEventListener("click", () => {
+                modal.showModal()
+                closeModal.focus()
+            }, false)
+
+            closeModal.addEventListener("click", () => {
+                modal.close()
+                openModal.focus()
+            }, false)
+        }, false)
+    </script>
+</body>
+</html>

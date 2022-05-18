@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attribut disabled, Scripts, Tests d'accessibilité</title>
+    <link rel="stylesheet" href="css/github.css">
+    <style media="all">
+      
+    </style>
+</head>
+<body>
+    <header role="banner">
+        <h1>Attribut disabled</h1>
+        <p><a href="index.html">Retour à l'accueil</a></p>
+    </header>
+    <main role="main">
+        <button type="button">Sans attribut disabled</button>
+        <button type="button" disabled>Attribut disabled</button>
+        <button type="button" disabled="disabled">Attribut disabled="disabled"</button>
+        <button type="button" disabled="true">Attribut disabled="true"</button>
+        <button type="button" disabled="false">Attribut disabled="false"</button>
+
+        <table>
+        <caption>Environnement de test</caption>
+        <tr>
+            <th scope="col">Windows 11, Firefox 100.0, NVDA</th>
+            <th scope="col">Windows 11, Chrome 101.0.4951.67, NVDA</th>
+            <th scope="col">Windows 11, Edge 101.0.1210.47, NVDA</th>
+            <th scope="col">Windows 11, Edge 101.0.1210.47, Jaws</th>
+            <th scope="col">MacOS 12.3.1, Safari, VoiceOver</th>
+            <th scope="col">iOS 15.4.1, Safari, VoiceOver</th>
+            <th scope="col">Android 11, Chrome 101.0.4951.61</th>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>disabled="true" : le bouton est disabled, il est correctement restitué</li>
+                    <li>disabled="false" : le bouton reste disabled</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>disabled="true" : le bouton est disabled, il est correctement restitué</li>
+                    <li>disabled="false" : le bouton reste disabled</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>disabled="true" : le bouton est disabled, il est correctement restitué</li>
+                    <li>disabled="false" : le bouton reste disabled</li>
+                </ul>
+            </td>
+            <td></td>
+            <td></td>
+            <td>Validé</td>
+            <td>Validé</td>
+            <td></td>
+        </tr>
+        </table>
+    </main>
+</body>
+</html>
